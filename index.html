@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VSTDA</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,400" rel="stylesheet">
+    <link rel="stylesheet" href="/app/styles/styles.css">
+    <!-- endinject -->
+</head>
+
+<body>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <h1>todo | a very simple to-do app</h1>
+    <div ng-controller="TodoListController as todoList" class="container" class="lead">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="todo in todoList.todos">
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="todo.done">
+                    <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </label>
+            </li>
+        </ul>
+        <input type="text" ng-model="todoList.todoText" size="30" placeholder="+ new todo">
+        <button class="btn-primary" type="button" ng-click="todoList.addTodo()">Submit</button>
+    </div>
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
